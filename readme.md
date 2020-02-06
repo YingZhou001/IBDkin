@@ -6,6 +6,25 @@ If you use this software in your published analysis, please cite:
 
 > TBD
 
+# Contents
+
+-   [IBDkin](#ibdkin)
+-   [Installation](#installation)
+-   [Running IBDkin](#running-ibdkin)
+    -   [A running example](#a-running-example)
+    -   [Help documents](#help-documents)
+    -   [Required Parameters](#required-parameters)
+    -   [Optional Parameters](#optional-parameters)
+    -   [Output Flags](#output-flags)
+-   [Output](#output)
+    -   [1. Kinship](#kinship)
+    -   [2. Coverage](#coverage)
+    -   [3. Mask region](#mask-region)
+-   [License](#license)
+
+
+
+
 ## Installation
 
 Download the source code folder 'src' and 'cd' into it, then type 'make', and the execuable file 'IBDkin' will be generated.
