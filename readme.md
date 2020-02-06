@@ -99,7 +99,7 @@ Usage: IBDkin [options] parameters
 
 [\[top\]](#content)
 
-## Output Flags
+## Flags
 * **--nokinship** # do not output kinship coefficients.
 * **--outmask** # output genome mask.
 * **--outcoverage** # output IBD coverage.
