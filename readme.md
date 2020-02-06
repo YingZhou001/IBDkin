@@ -8,11 +8,10 @@ If you use this software in your published analysis, please cite:
 
 # Contents
 
--   [IBDkin](#ibdkin)
 -   [Installation](#installation)
 -   [Running IBDkin](#running-ibdkin)
     -   [A running example](#a-running-example)
-    -   [Help documents](#help-documents)
+    -   [Help Documents](#help-documents)
     -   [Required Parameters](#required-parameters)
     -   [Optional Parameters](#optional-parameters)
     -   [Output Flags](#output-flags)
@@ -25,8 +24,8 @@ If you use this software in your published analysis, please cite:
 
 # Installation
 
-Download the source code folder 'src' and 'cd' into it, then type 'make', and the execuable file 'IBDkin' will be generated.
-This software is developped under linux CentOS 7.5, it has not been tested under any other systems.
+Download the source code folder `src` and `cd` into it, then type 'make', and the executable file `IBDkin` will be generated.
+This software is developed under linux CentOS 7.5, it has not been tested under any other systems.
 
 
 [\[top\]](#content)
@@ -50,7 +49,7 @@ ibdfile="ibdhead.txt"
 
 
 ## Help Document
-Type './IBDkin' or input error would invoke the help manu:
+Type `./IBDkin` or input error would invoke the help document:
 
 ```bash
 Usage: IBDkin [options] parameters
@@ -115,7 +114,7 @@ All these three files are gzip-compressed, ended with ".kinship.gz", ".coverage.
 
 ## Kinship
 
-Kinship coeffient output is includes eight columns:
+Kinship coefficient output is includes eight columns:
 
 1. sample identifier-1
 2. sample identifier-2
@@ -131,11 +130,11 @@ Kinship coeffient output is includes eight columns:
 
 ## Coverage
 
-IBD coverage output incudes four columns:
+IBD coverage output includes four columns:
 
 1. chromosome
 2. start position
-3. end poisiton
+3. end position
 4. IBD coverage
 
 [\[top\]](#content)
