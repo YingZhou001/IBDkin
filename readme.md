@@ -6,7 +6,7 @@ If you use this software in your published analysis, please cite:
 
 > TBD
 
-# Contents
+# Content
 
 -   [Installation](#installation)
 -   [Running IBDkin](#running-ibdkin)
