@@ -17,9 +17,9 @@ If you use this software in your published analysis, please cite:
     -   [Optional Parameters](#optional-parameters)
     -   [Output Flags](#output-flags)
 -   [Output](#output)
-    -   [1. Kinship](#kinship)
-    -   [2. Coverage](#coverage)
-    -   [3. Mask region](#mask-region)
+    -   [Kinship](#kinship)
+    -   [Coverage](#coverage)
+    -   [Mask region](#mask-region)
 -   [License](#license)
 
 
@@ -113,7 +113,7 @@ Usage: IBDkin [options] parameters
 **IBDkin** has three output files, kinship estimation, IBD coverage, and masked regions.
 All these three files are gzip-compressed, ended with ".kinship.gz", ".coverage.gz", and ".mask.bed.gz"" separately.
 
-## 1. Kinship
+## Kinship
 
 Kinship coeffient output is includes eight columns:
 
@@ -129,7 +129,7 @@ Kinship coeffient output is includes eight columns:
 
 [\[top\]](#content)
 
-## 2. Coverage
+## Coverage
 
 IBD coverage output incudes four columns:
 
@@ -140,7 +140,7 @@ IBD coverage output incudes four columns:
 
 [\[top\]](#content)
 
-## 3. Mask region
+## Mask region
 
 Mask output records the regions to be excluded in the estimation, it includes three columns:
 
