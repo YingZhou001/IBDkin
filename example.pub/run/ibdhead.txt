@@ -1,0 +1,4 @@
+../ibd/chr1.ibd.gz
+../ibd/chr2.ibd.gz
+../ibd/chr3.ibd.gz
+../ibd/chr4.ibd.gz
