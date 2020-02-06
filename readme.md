@@ -11,7 +11,7 @@ If you use this software in your published analysis, please cite:
 -   [Installation](#installation)
 -   [Running IBDkin](#running-ibdkin)
     -   [A running example](#a-running-example)
-    -   [Help Documents](#help-documents)
+    -   [Help Document](#help-document)
     -   [Required Parameters](#required-parameters)
     -   [Optional Parameters](#optional-parameters)
     -   [Output Flags](#output-flags)
