@@ -3,7 +3,7 @@ ind="ind.txt"
 ibdfile="ibd.txt"
 
 #example-1
-./IBDkin -ibdfile ${ibdfile} -map ${map} -ind ${ind} -nthreads 5 -out example-1 --outmask --outcoverage
+./IBDkin -ibdfile ${ibdfile} -map ${map} -ind ${ind} -nthreads 5 -out example-1
 
 
 #example-2
