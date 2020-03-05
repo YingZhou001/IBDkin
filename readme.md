@@ -32,8 +32,9 @@ Download the source code folder `src` and `cd` into it, then type `make`, and th
 ```bash
 #commands to download and install this software
 #will be adjust once the software is uploaded
-wget ..
-tar xvf ..
+git clone https://github.com/YingZhou001/IBDkin.git
+
+cd IBDkin/src-v2.8.7.3/
 make
 ```
 This software is developed under linux CentOS 7.5.
@@ -43,25 +44,33 @@ This software is developed under linux CentOS 7.5.
 
 # 2 Running IBDkin
 
-## 2.1 Example Analysis
-
-Let's take the first run of **IBDkin** with the data in the [example.pub](example.pub/).
+To run following examples, user can `cd` into the folder `IBDkin/example.pub/run`, `cp` the executable file `IBDkin` into this folder, and type `sh run.sh` to see the outputs of following examples.
 
 ```bash
-# initialize the inputs
-map="plink.map"
-ind="ind.txt"
-ibdfile="ibdhead.txt"
+cd IBDkin/example.pub/run
+cp ../../src-v2.8.7.3/IBDkin ./
+sh run.sh
+```
+Otherwise, new users can follow the section 2.1.1 to 2.1.3 to run this software.
+
+## 2.1 Example Analysis
+
+Let's take the first run of **IBDkin** in the folder [IBDkin/example.pub/run](example.pub/run).
+In this folder, we have three required input files: `ibd.txt` is for IBD segments, `ind.txt` is for the individual list, and `plink.map` is the recombination map. Clear description can be found in the section [Required Parameters](#required-parameters). 
+Before running the following scripts, we need to copy the executable file `IBDkin` to this folder with command:
+
+```bash
+cp ../../src-v2.8.7.3/IBDkin ./
 ```
 
 ### 2.1.1 Computing kinship coefficients
-In the following script, we run **IBDkin** with five threads (`-nthreads 5`), 
+In this first script, we will run **IBDkin** with five threads (`-nthreads 5`), 
 and output kinship coefficients between individual pairs whose relationship is up to the 9th degree (default). 
 The output file prefix is specified with the `-out` flag.
-The output kinship coefficients are in the gzip-compressed file "first-run.kinship.gz":
+The output kinship coefficients are in the gzip-compressed file "example-1.kinship.gz":
 
 ```bash
-./IBDkin -ibdfile ${ibdfile} -map ${map} -ind ${ind} -nthreads 5 -out first-run --outmask --outcoverage
+./IBDkin -ibdfile ibd.txt -map plink.map -ind ind.txt -nthreads 5 -out example-1
 ```
 
 ### 2.1.2 Computing IBD coverage and masked regions
@@ -73,7 +82,7 @@ Both files are gzip-compressed.
 The command for this analysis is:
 
 ```bash
-./IBDkin -ibdfile ${ibdfile} -map ${map} -ind ${ind} -nthreads 5 -out first-bite --outmask --outcoverage --nokinship
+./IBDkin -ibdfile ibd.txt -map plink.map -ind ind.txt -nthreads 5 -out example-2 --outmask --outcoverage --nokinship
 ```
 
 ### 2.1.3 Distributed analysis
@@ -84,7 +93,7 @@ In the following script, we assign the analysis into five partitions and run eac
 ```bash
 for part in {1..5}
 do
-./IBDkin -ibdfile ${ibdfile} -map ${map} -ind ${ind} -nthreads 5 -out first-bite.${part} -part 5 ${part}
+./IBDkin -ibdfile ibd.txt -map plink.map -ind ind.txt -nthreads 5 -out example-3.${part} -part 5 ${part}
 done
 ```
 **Caution!**: specify different output prefix for each part when use the `-part` option, or you will overwrite your estimations.
