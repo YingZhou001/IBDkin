@@ -18,10 +18,10 @@ Last update: \today
     -   [2.2 Required Parameters](#required-parameters)
     -   [2.3 Optional Parameters](#optional-parameters)
     -   [2.4 Flags](#flags)
--   [3 Output](#output)
-    -   [3.1 Kinship](#kinship)
-    -   [3.2 Coverage](#coverage)
-    -   [3.3 Mask region](#mask-region)
+-   [3 Output Files](#output-files)
+    -   [3.1 Kinship coefficients](#kinship-coefficients)
+    -   [3.2 IBD coverage](#ibd-coverage)
+    -   [3.3 Masked regions](#masked-regions)
 -   [4 License](#license)
 
 
@@ -50,6 +50,8 @@ cp ../../src-v2.8.7.3/IBDkin ./
 sh run.sh
 ```
 Otherwise, new users can follow the section 2.1.1 to 2.1.3 to run this software.
+
+[\[top\]](#content)
 
 ## 2.1 Example Analysis
 
@@ -104,7 +106,6 @@ For advanced parameters setting, please read our [manuscript(add link to our man
 * **-ibdfile [file]** #\<string\> > the [file] contains the pathnames of files of the IBD segments on each chromosome. One pathname per line, and one line per chromosome. The IBD segments are stored in gzip-compressed [hap-IBD format](https://github.com/browning-lab/hap-ibd).
 * **-map [file]** #\<string\> the [file] is a [genetic map with cM distances in PLINK format](http://zzz.bwh.harvard.edu/plink/data.shtml), including all target chromosomes used for kinship estimation. 
 The chromosome identifier in each hap-IBD output file must match the chromosome identifier in the genetic map file.
-
 * **-ind [file]** #\<string\> the [file] includes a list of individuals to be analyzed.
 
 [\[top\]](#content)
@@ -138,7 +139,7 @@ The chromosome identifier in each hap-IBD output file must match the chromosome 
 **IBDkin** has three outputs: kinship coefficients, IBD coverage, and masked regions.
 These outputs are reported in three gzip-compressed files.
 
-## 3.1 Kinship
+## 3.1 Kinship coefficients
 
 The kinship coefficient output file (ending with ".kinship.gz") has eight columns:
 
@@ -154,7 +155,7 @@ The kinship coefficient output file (ending with ".kinship.gz") has eight column
 
 [\[top\]](#content)
 
-## 3.2 IBD Coverage
+## 3.2 IBD coverage
 
 The IBD coverage output file (ending in ".coverage.gz") has four columns:
 
