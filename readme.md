@@ -10,19 +10,22 @@ If you use this software in your published analysis, please cite:
 
 Last update: \today
 
-# Content
 
--   [1 Installation](#installation)
--   [2 Running IBDkin](#running-ibdkin)
-    -   [2.1 Example analysis](#example-analysis)
-    -   [2.2 Required Parameters](#required-parameters)
-    -   [2.3 Optional Parameters](#optional-parameters)
-    -   [2.4 Flags](#flags)
--   [3 Output Files](#output-files)
-    -   [3.1 Kinship coefficients](#kinship-coefficients)
-    -   [3.2 IBD coverage](#ibd-coverage)
-    -   [3.3 Masked regions](#masked-regions)
--   [4 License](#license)
+Content
+--------
+
+- [1 Installation](#installation)
+- [2 Running IBDkin](#running-ibdkin)
+    - [2.1 Example analysis](#example-analysis)
+    - [2.2 Required Parameters](#required-parameters)
+    - [2.3 Optional Parameters](#optional-parameters)
+    - [2.4 Flags](#flags)
+- [3 Output Files](#output-files)
+    - [3.1 Kinship coefficients](#kinship-coefficients)
+    - [3.2 IBD coverage](#ibd-coverage)
+    - [3.3 Masked regions](#masked-regions)
+- [4 License](#license)
+
 
 
 # 1 Installation
@@ -38,7 +41,7 @@ make
 This software is developed under linux CentOS 7.5.
 
 
-[\[top\]](#content)
+[\[top\]](#ibdkin)
 
 # 2 Running IBDkin
 
@@ -51,7 +54,7 @@ sh run.sh
 ```
 Otherwise, new users can follow the section 2.1.1 to 2.1.3 to run this software.
 
-[\[top\]](#content)
+[\[top\]](#ibdkin)
 
 ## 2.1 Example Analysis
 
@@ -98,7 +101,7 @@ part=1 # can be set as 2, 3, 4, and 5
 
 For advanced parameters setting, please read our [manuscript(add link to our manuscript)](#ibdkin) and check the following sections: [Required Parameters](#required-parameters), [Optional Parameters](#optional-parameters).
 
-[\[top\]](#content)
+[\[top\]](#ibdkin)
 
 
 ## 2.2 Required Parameters
@@ -108,7 +111,7 @@ For advanced parameters setting, please read our [manuscript(add link to our man
 The chromosome identifier in each hap-IBD output file must match the chromosome identifier in the genetic map file.
 * **-ind [file]** #\<string\> the [file] includes a list of individuals to be analyzed.
 
-[\[top\]](#content)
+[\[top\]](#ibdkin)
 
 
 ## 2.3 Optional Parameters
@@ -124,14 +127,14 @@ The chromosome identifier in each hap-IBD output file must match the chromosome 
 * **-cutcm 4 2** #\<float\> \<float\> The minimum long and short IBD segment lengths in cM. A kinship coefficient is estimated for each pair of individuals having at least one long IBD segment.  All short and long IBD segments are included when estimating the kinship coefficient in pairs of individuals having more than one long IBD segment. 
 * **-merge 5 20**   #\<float\> \<float\> max cM merge lengths for IBD1 and IBD2 regions. The first float is the maximum length of the IBD0 region between IBD1 regions to be merged, the second float is the maximum length of the non-IBD2 region between IBD2 regions to be merged.
 
-[\[top\]](#content)
+[\[top\]](#ibdkin)
 
 ## 2.4 Flags
 * **--nokinship** # do not output kinship coefficients.
 * **--outmask** # output genome mask.
 * **--outcoverage** # output IBD coverage.
 
-[\[top\]](#content)
+[\[top\]](#ibdkin)
 
 
 # 3 Output Files
@@ -153,7 +156,7 @@ The kinship coefficient output file (ending with ".kinship.gz") has eight column
 8. Degree of relationship
 
 
-[\[top\]](#content)
+[\[top\]](#ibdkin)
 
 ## 3.2 IBD coverage
 
@@ -167,7 +170,7 @@ The IBD coverage output file (ending in ".coverage.gz") has four columns:
 The IBD coverage, the forth column in the output, is the total number of IBD segments intersecting the chromosome interval, with each segment weighted by the proportion of the interval that it covers.
 
 
-[\[top\]](#content)
+[\[top\]](#ibdkin)
 
 ## 3.3 Masked regions
 
@@ -177,7 +180,7 @@ The masked output file (ending in "masked.gz") has three columns:
 2. Start position of each mask region
 3. End position of each mask region
 
-[\[top\]](#content)
+[\[top\]](#ibdkin)
 
 # 4 License
 
@@ -194,4 +197,4 @@ See the GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-[\[top\]](#content)
+[\[top\]](#ibdkin)
