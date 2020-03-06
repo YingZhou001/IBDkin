@@ -60,7 +60,7 @@ Otherwise, new users can follow the section 2.1.1 to 2.1.3 to run this software.
 
 Let's take the first run of **IBDkin** in the folder [IBDkin/example.pub/run](example.pub/run).
 In this folder, we have three required input files: "ibd.txt" is the IBD segments, "ind.txt" is the individual list, and "plink.map" is the recombination map. 
-Detail description can be found in the section [Required Parameters](#required-parameters). 
+Detail description can be found in the section [Required Parameters](#22-required-parameters). 
 Before running the following scripts, we need to copy the executable file `IBDkin` to this folder with command:
 
 ```bash
@@ -99,7 +99,7 @@ part=1 # can be set as 2, 3, 4, and 5
 ```
 **Caution!**: specify different output prefix for each part when use the `-part` option, or you will overwrite your estimations.
 
-For advanced parameters setting, please read our [manuscript(add link to our manuscript)](#ibdkin) and check the following sections: [Required Parameters](#required-parameters), [Optional Parameters](#optional-parameters).
+For advanced parameters setting, please read our [manuscript(add link to our manuscript)](#ibdkin) and check the following sections: [Required Parameters](#22-required-parameters), [Optional Parameters](#23-optional-parameters).
 
 [\[top\]](#ibdkin)
 
@@ -123,7 +123,7 @@ The chromosome identifier in each hap-IBD output file must match the chromosome 
 * **-degree 9** #\<int\> max relationship degree for output kinship coefficients.
 * **-binkb 1000** #\<float\> bin size in kbp to calculate IBD coverage.
 * **-fold 4** #\<float\> max fold permitted deviation from the genome-wide median IBD coverage.  Regions having greater deviation will be excluded in the kinship estimation.
-* **-part 1 1**   #\<int\> \<int\>total partitions and current partition. The first integer is the total number of partitions we are going to analyze separately, and the second integer (starting from 1) determines which partition to analyze in this run. This option allows us to distribute calculation to different computation nodes. Please check the section [Distributed analysis](#distributed-analysis) for an working example.
+* **-part 1 1**   #\<int\> \<int\>total partitions and current partition. The first integer is the total number of partitions we are going to analyze separately, and the second integer (starting from 1) determines which partition to analyze in this run. This option allows us to distribute calculation to different computation nodes. Please check the section [Distributed analysis](#213-distributed-analysis) for an working example.
 * **-cutcm 4 2** #\<float\> \<float\> The minimum long and short IBD segment lengths in cM. A kinship coefficient is estimated for each pair of individuals having at least one long IBD segment.  All short and long IBD segments are included when estimating the kinship coefficient in pairs of individuals having more than one long IBD segment. 
 * **-merge 5 20**   #\<float\> \<float\> max cM merge lengths for IBD1 and IBD2 regions. The first float is the maximum length of the IBD0 region between IBD1 regions to be merged, the second float is the maximum length of the non-IBD2 region between IBD2 regions to be merged.
 
