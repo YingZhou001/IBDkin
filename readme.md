@@ -14,17 +14,17 @@ Last update: \today
 Content
 --------
 
-- [1 Installation](#installation)
-- [2 Running IBDkin](#running-ibdkin)
-    - [2.1 Example analysis](#example-analysis)
-    - [2.2 Required Parameters](#required-parameters)
-    - [2.3 Optional Parameters](#optional-parameters)
-    - [2.4 Flags](#flags)
-- [3 Output Files](#output-files)
-    - [3.1 Kinship coefficients](#kinship-coefficients)
-    - [3.2 IBD coverage](#ibd-coverage)
-    - [3.3 Masked regions](#masked-regions)
-- [4 License](#license)
+- [1 Installation](#1-installation)
+- [2 Running IBDkin](#2-running-ibdkin)
+    - [2.1 Example analysis](#2.1-example-analysis)
+    - [2.2 Required Parameters](#2.2-required-parameters)
+    - [2.3 Optional Parameters](#2.3-optional-parameters)
+    - [2.4 Flags](#2.4-flags)
+- [3 Output Files](#3-output-files)
+    - [3.1 Kinship coefficients](#3.1-kinship-coefficients)
+    - [3.2 IBD coverage](#3.2-ibd-coverage)
+    - [3.3 Masked regions](#3.3-masked-regions)
+- [4 License](#4-license)
 
 
 
