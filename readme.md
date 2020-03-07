@@ -21,7 +21,7 @@ Content
     - [2.1 Example analysis](#21-example-analysis)
     - [2.2 Required Parameters](#22-required-parameters)
     - [2.3 Optional Parameters](#23-optional-parameters)
-    - [2.4 Flags](#2.4-flags)
+    - [2.4 Flags](#24-flags)
 - [3 Output Files](#3-output-files)
     - [3.1 Kinship Coefficients](#31-kinship-coefficients)
     - [3.2 IBD Coverage](#32-ibd-coverage)
