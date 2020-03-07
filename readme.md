@@ -6,9 +6,11 @@ IBDkin scales to hundreds of billions of IBD segments detected in hundreds of th
 
 If you use this software in your published analysis, please cite:
 
-> IBDkin: fast estimation of kinship coefficients from identity-by-descent segments
+> IBDkin: fast estimation of kinship coefficients from identity by descent segments
 
-Last update: \today
+Last update: 2020-03-06,
+by Ying Zhou, yz001(at)uw(dot)edu
+
 
 
 Content
@@ -21,46 +23,46 @@ Content
     - [2.3 Optional Parameters](#23-optional-parameters)
     - [2.4 Flags](#2.4-flags)
 - [3 Output Files](#3-output-files)
-    - [3.1 Kinship coefficients](#31-kinship-coefficients)
-    - [3.2 IBD coverage](#32-ibd-coverage)
-    - [3.3 Masked regions](#33-masked-regions)
+    - [3.1 Kinship Coefficients](#31-kinship-coefficients)
+    - [3.2 IBD Coverage](#32-ibd-coverage)
+    - [3.3 Masked Regions](#33-masked-regions)
 - [4 License](#4-license)
 
 
 
 # 1 Installation
 
-Download the source code `cd` into the source code folder "IBDkin/src-v2.8.7.3/", then type `make`, and the executable file `IBDkin` will be generated and ready to use.
+The following commands download the source code, change the working directory to the source code folder "IBDkin/src-v2.8.7.3/", then type `make`, and create the executable file,`IBDkin`:
 
 ```bash
+
 git clone https://github.com/YingZhou001/IBDkin.git
 
 cd IBDkin/src-v2.8.7.3/
 make
 ```
-This software is developed under linux CentOS 7.5.
+**IBDkin** is compiled under linux CentOS 7.5 using gcc 4.8.5. If you encounter any problems compiling the program, please contact the author for assistance. 
 
 
 [\[top\]](#ibdkin)
 
 # 2 Running IBDkin
 
-To run following examples, user can `cd` into the folder "IBDkin/example.pub/run", `cp` the executable file "IBDkin" into this folder, and type `sh run.sh` to see the outputs of following examples.
+To run following examples, change the working directory to "IBDkin/example.pub/run", copy the executable file "IBDkin" into this folder, and enter `sh run.sh` to run the examples in sections 2.1.1 to 2.1.3.
 
 ```bash
 cd IBDkin/example.pub/run
 cp ../../src-v2.8.7.3/IBDkin ./
 sh run.sh
 ```
-Otherwise, new users can follow the section 2.1.1 to 2.1.3 to run this software.
+Alternatively, you can enter the commands following instructions in sections 2.1.1 to 2.1.3 to run the examples.
 
 [\[top\]](#ibdkin)
 
 ## 2.1 Example Analysis
 
-Let's take the first run of **IBDkin** in the folder [IBDkin/example.pub/run](example.pub/run).
-In this folder, we have three required input files: "ibd.txt" is the IBD segments, "ind.txt" is the individual list, and "plink.map" is the recombination map. 
-Detail description can be found in the section [Required Parameters](#22-required-parameters). 
+We first change the working directory to the [IBDkin/example.pub/run](example.pub/run) folder.
+This folder contains three required **IBDkin**input files: "ibd.txt" is the IBD segments, "ind.txt" is the individual list, and "plink.map" is the genetic map (see [Required Parameters](#22-required-parameters)). 
 Before running the following scripts, we need to copy the executable file `IBDkin` to this folder with command:
 
 ```bash
@@ -71,7 +73,7 @@ cp ../../src-v2.8.7.3/IBDkin ./
 We first run **IBDkin** with five threads (`-nthreads 5`), 
 and output kinship coefficients between individual pairs whose relationship is up to the 9th degree (the default). 
 The output file prefix is specified with the `-out` flag.
-The output kinship coefficients are in the gzip-compressed file "example-1.kinship.gz":
+The output kinship coefficients are written to the gzip-compressed file "example-1.kinship.gz":
 
 ```bash
 ./IBDkin -ibdfile ibd.txt -map plink.map -ind ind.txt -nthreads 5 -out example-1
@@ -79,8 +81,8 @@ The output kinship coefficients are in the gzip-compressed file "example-1.kinsh
 
 ### 2.1.2 Computing IBD coverage and masked regions
 In certain situations, we may want to output the masked regions (flag `--outmask`) and the IBD coverage across the genome (flag `--outcoverage`). 
-If we do not need to perform kinship estimation, we can make the analysis faster by adding the `--nokinship` flag.  When the `--nokinship` flag is specified, the program makes only one pass through the IBD data to calculate the mask regions and coverages.
-The output mask filename will end in ".mask.gz" and the output coverage filename will end in ".coverage.gz". 
+If we do not need to perform kinship estimation, we can make the analysis faster by adding the `--nokinship` flag.  When the `--nokinship` flag is specified, the program makes only one pass through the IBD data to calculate the masked regions and IBD coverages.
+The output mask filename will end in ".mask.gz" and the output IBD coverage filename will end in ".coverage.gz". 
 Both files are gzip-compressed. 
 The command for this analysis is:
 
@@ -89,7 +91,7 @@ The command for this analysis is:
 ```
 
 ### 2.1.3 Distributed analysis
-If there is not enough memory to run an analysis on a huge data set, we can use the option `-part` to distribute computation to different nodes.
+If there is not enough memory to run an analysis on a huge data set, we can use the option `-part` to distribute computation across separate compute jobs.
 In the following script, we assign the analysis into five partitions and run each partition separately by assigning integers, from 1 to 5, to the variable `${part}`.
 
 
@@ -106,24 +108,25 @@ For advanced parameters setting, please read our [manuscript(add link to our man
 
 ## 2.2 Required Parameters
 
-* **-ibdfile [file]** #\<string\> > the [file] contains the pathnames of files of the IBD segments on each chromosome. One pathname per line, and one line per chromosome. The IBD segments are stored in gzip-compressed [hap-IBD format](https://github.com/browning-lab/hap-ibd).
+* **-ibdfile [file]** #\<string\> > the [file] contains the pathnames of files that contain the IBD segments on each chromosome (one pathname per line, and one line per chromosome). The IBD segments must be stored in gzip-compressed [hap-IBD format](https://github.com/browning-lab/hap-ibd).
 * **-map [file]** #\<string\> the [file] is a [genetic map with cM distances in PLINK format](http://zzz.bwh.harvard.edu/plink/data.shtml), including all target chromosomes used for kinship estimation. 
 The chromosome identifier in each hap-IBD output file must match the chromosome identifier in the genetic map file.
-* **-ind [file]** #\<string\> the [file] includes a list of individuals to be analyzed.
+* **-ind [file]** #\<string\> the [file] includes a list of individuals to be analyzed (one individual per line).
 
 [\[top\]](#ibdkin)
 
 
 ## 2.3 Optional Parameters
 
-(default value(s) follow each option)
+Each option is followed by it’s default value
+
 
 * **-out ./** # \<string\> output prefix.
 * **-nthreads 2** #\<int\> number of threads.
 * **-degree 9** #\<int\> max relationship degree for output kinship coefficients.
 * **-binkb 1000** #\<float\> bin size in kbp to calculate IBD coverage.
-* **-fold 4** #\<float\> max fold permitted deviation from the genome-wide median IBD coverage.  Regions having greater deviation will be excluded in the kinship estimation.
-* **-part 1 1**   #\<int\> \<int\>total partitions and current partition. The first integer is the total number of partitions we are going to analyze separately, and the second integer (starting from 1) determines which partition to analyze in this run. This option allows us to distribute calculation to different computation nodes. Please check the section [Distributed analysis](#213-distributed-analysis) for an working example.
+* **-fold 4** #\<float\> max permitted fold deviation from the genome-wide median IBD coverage.  Regions having greater deviation will be excluded in the kinship estimation.
+* **-part 1 1**   #\<int\> \<int\>total partitions and current partition. The first integer is the total number of partitions that will be analyzed, and the second integer (starting from 1) determines the partition that will be analyzed in this run. This option enables distributed analysis across multiple computation nodes. Please see the [Distributed analysis](#213-distributed-analysis) section for an example.
 * **-cutcm 4 2** #\<float\> \<float\> The minimum long and short IBD segment lengths in cM. A kinship coefficient is estimated for each pair of individuals having at least one long IBD segment.  All short and long IBD segments are included when estimating the kinship coefficient in pairs of individuals having more than one long IBD segment. 
 * **-merge 5 20**   #\<float\> \<float\> max cM merge lengths for IBD1 and IBD2 regions. The first float is the maximum length of the IBD0 region between IBD1 regions to be merged, the second float is the maximum length of the non-IBD2 region between IBD2 regions to be merged.
 
@@ -131,7 +134,7 @@ The chromosome identifier in each hap-IBD output file must match the chromosome 
 
 ## 2.4 Flags
 * **--nokinship** # do not output kinship coefficients.
-* **--outmask** # output genome mask.
+* **--outmask** # output masked regions.
 * **--outcoverage** # output IBD coverage.
 
 [\[top\]](#ibdkin)
@@ -142,7 +145,7 @@ The chromosome identifier in each hap-IBD output file must match the chromosome 
 **IBDkin** has three outputs: kinship coefficients, IBD coverage, and masked regions.
 These outputs are reported in three gzip-compressed files.
 
-## 3.1 Kinship coefficients
+## 3.1 Kinship Coefficients
 
 The kinship coefficient output file (ending with ".kinship.gz") has eight columns:
 
@@ -158,7 +161,7 @@ The kinship coefficient output file (ending with ".kinship.gz") has eight column
 
 [\[top\]](#ibdkin)
 
-## 3.2 IBD coverage
+## 3.2 IBD Coverage
 
 The IBD coverage output file (ending in ".coverage.gz") has four columns:
 
@@ -172,13 +175,13 @@ The IBD coverage, the forth column in the output, is the total number of IBD seg
 
 [\[top\]](#ibdkin)
 
-## 3.3 Masked regions
+## 3.3 Masked Regions
 
-The masked output file (ending in "masked.gz") has three columns:
+The masked regions output file (ending in "mask.gz") has three columns:
 
 1. Chromosome
-2. Start position of each mask region
-3. End position of each mask region
+2. Start position of each masked region
+3. End position of each masked region
 
 [\[top\]](#ibdkin)
 
