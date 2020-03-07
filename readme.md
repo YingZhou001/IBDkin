@@ -8,7 +8,7 @@ If you use this software in your published analysis, please cite:
 
 > IBDkin: fast estimation of kinship coefficients from identity by descent segments
 
-Last update: 2020-03-06,
+Last update: March 7, 2020,
 by Ying Zhou, yz001(at)uw(dot)edu
 
 
@@ -32,7 +32,7 @@ Content
 
 # 1 Installation
 
-The following commands download the source code, change the working directory to the source code folder "IBDkin/src-v2.8.7.3/", then type `make`, and create the executable file,`IBDkin`:
+The following commands download the source code, change the working directory to the source code folder "IBDkin/src-v2.8.7.3/", and create the executable file,`IBDkin`:
 
 ```bash
 
@@ -61,9 +61,12 @@ Alternatively, you can enter the commands following instructions in sections 2.1
 
 ## 2.1 Example Analysis
 
-We first change the working directory to the [IBDkin/example.pub/run](example.pub/run) folder.
-This folder contains three required **IBDkin**input files: "ibd.txt" is the IBD segments, "ind.txt" is the individual list, and "plink.map" is the genetic map (see [Required Parameters](#22-required-parameters)). 
-Before running the following scripts, we need to copy the executable file `IBDkin` to this folder with command:
+We first change the working directory to the [IBDkin/example.pub/run](example.pub/run) folder with the command:
+```bash
+cd IBDkin/example.pub/run
+```
+This folder contains three required **IBDkin**input files: "ibd.txt" is the IBD segments, "ind.txt" is the list of individuals, and "plink.map" is the genetic map (see [Required Parameters](#22-required-parameters)). 
+Before running the following scripts, we need to copy the executable file `IBDkin` to the working directory with command:
 
 ```bash
 cp ../../src-v2.8.7.3/IBDkin ./
@@ -82,9 +85,7 @@ The output kinship coefficients are written to the gzip-compressed file "example
 ### 2.1.2 Computing IBD coverage and masked regions
 In certain situations, we may want to output the masked regions (flag `--outmask`) and the IBD coverage across the genome (flag `--outcoverage`). 
 If we do not need to perform kinship estimation, we can make the analysis faster by adding the `--nokinship` flag.  When the `--nokinship` flag is specified, the program makes only one pass through the IBD data to calculate the masked regions and IBD coverages.
-The output mask filename will end in ".mask.gz" and the output IBD coverage filename will end in ".coverage.gz". 
-Both files are gzip-compressed. 
-The command for this analysis is:
+The output masked regions will be written to the gzip-compressed file "example-2.mask.gz", and the output IBD coverage will be written to the gzip-compressed file "example-2.coverage.gz". 
 
 ```bash
 ./IBDkin -ibdfile ibd.txt -map plink.map -ind ind.txt -nthreads 5 -out example-2 --outmask --outcoverage --nokinship
@@ -99,7 +100,7 @@ In the following script, we assign the analysis into five partitions and run eac
 part=1 # can be set as 2, 3, 4, and 5
 ./IBDkin -ibdfile ibd.txt -map plink.map -ind ind.txt -nthreads 5 -out example-3.${part} -part 5 ${part}
 ```
-**Caution!**: specify different output prefix for each part when use the `-part` option, or you will overwrite your estimations.
+**Caution!**: specify a different output file prefix for each part when use the `-part` option, or you will overwrite your estimations.
 
 For advanced parameters setting, please read our [manuscript(add link to our manuscript)](#ibdkin) and check the following sections: [Required Parameters](#22-required-parameters), [Optional Parameters](#23-optional-parameters).
 
@@ -108,8 +109,8 @@ For advanced parameters setting, please read our [manuscript(add link to our man
 
 ## 2.2 Required Parameters
 
-* **-ibdfile [file]** #\<string\> > the [file] contains the pathnames of files that contain the IBD segments on each chromosome (one pathname per line, and one line per chromosome). The IBD segments must be stored in gzip-compressed [hap-IBD format](https://github.com/browning-lab/hap-ibd).
-* **-map [file]** #\<string\> the [file] is a [genetic map with cM distances in PLINK format](http://zzz.bwh.harvard.edu/plink/data.shtml), including all target chromosomes used for kinship estimation. 
+* **-ibdfile [file]** #\<string\> the [file] contains the pathnames of files that contain the IBD segments on each chromosome (one pathname per line, and one line per chromosome). The IBD segments must be stored in gzip-compressed [hap-IBD format](https://github.com/browning-lab/hap-ibd).
+* **-map [file]** #\<string\> the [file] is a genetic map with cM distances in [PLINK format](http://zzz.bwh.harvard.edu/plink/data.shtml#map), including all target chromosomes used for kinship estimation. 
 The chromosome identifier in each hap-IBD output file must match the chromosome identifier in the genetic map file.
 * **-ind [file]** #\<string\> the [file] includes a list of individuals to be analyzed (one individual per line).
 
