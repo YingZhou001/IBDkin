@@ -110,9 +110,7 @@ For advanced parameters setting, please read our [manuscript(add link to our man
 ## 2.2 Required Parameters
 
 * **-ibdfile [file]** #\<string\> the [file] contains the pathnames of files that contain the IBD segments on each chromosome (one pathname per line, and one line per chromosome). The IBD segments must be stored in gzip-compressed [hap-IBD format](https://github.com/browning-lab/hap-ibd).
-* **-map [file]** #\<string\> the [file] is a genetic map with cM distances in [PLINK format](http://zzz.bwh.harvard.edu/plink/data.shtml#map), including all target chromosomes used for kinship estimation. 
-The chromosome identifier in each hap-IBD output file must match the chromosome identifier in the genetic map file. 
-The current version (v2.8.7.4) of **IBDkin** only supports for the analysis on automosome, and the chromosome identifier is expected to be coded 1 through 22.
+* **-map [file]** #\<string\> the [file] is a genetic map with cM distances in [PLINK format](http://zzz.bwh.harvard.edu/plink/data.shtml#map), including all target chromosomes used for kinship estimation. The chromosomes identifiers must be coded as 1 through 22.
 * **-ind [file]** #\<string\> the [file] includes a list of individuals to be analyzed (one individual per line).
 
 [\[top\]](#ibdkin)
