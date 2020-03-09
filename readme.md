@@ -8,7 +8,7 @@ If you use this software in your published analysis, please cite:
 
 > IBDkin: fast estimation of kinship coefficients from identity by descent segments
 
-Last update: March 7, 2020,
+Last update: March 8, 2020,
 by Ying Zhou, yz001(at)uw(dot)edu
 
 
@@ -32,13 +32,13 @@ Content
 
 # 1 Installation
 
-The following commands download the source code, change the working directory to the source code folder "IBDkin/src-v2.8.7.3/", and create the executable file,`IBDkin`:
+The following commands download the source code, change the working directory to the source code folder "IBDkin/src-v2.8.7.4/", and create the executable file,`IBDkin`:
 
 ```bash
 
 git clone https://github.com/YingZhou001/IBDkin.git
 
-cd IBDkin/src-v2.8.7.3/
+cd IBDkin/src-v2.8.7.4/
 make
 ```
 **IBDkin** is compiled under linux CentOS 7.5 using gcc 4.8.5. If you encounter any problems compiling the program, please contact the author for assistance. 
@@ -52,7 +52,7 @@ To run following examples, change the working directory to "IBDkin/example.pub/r
 
 ```bash
 cd IBDkin/example.pub/run
-cp ../../src-v2.8.7.3/IBDkin ./
+cp ../../src-v2.8.7.4/IBDkin ./
 sh run.sh
 ```
 Alternatively, you can enter the commands following instructions in sections 2.1.1 to 2.1.3 to run the examples.
@@ -69,7 +69,7 @@ This folder contains three required **IBDkin**input files: "ibd.txt" is the IBD 
 Before running the following scripts, we need to copy the executable file `IBDkin` to the working directory with command:
 
 ```bash
-cp ../../src-v2.8.7.3/IBDkin ./
+cp ../../src-v2.8.7.4/IBDkin ./
 ```
 
 ### 2.1.1 Computing kinship coefficients
@@ -111,7 +111,8 @@ For advanced parameters setting, please read our [manuscript(add link to our man
 
 * **-ibdfile [file]** #\<string\> the [file] contains the pathnames of files that contain the IBD segments on each chromosome (one pathname per line, and one line per chromosome). The IBD segments must be stored in gzip-compressed [hap-IBD format](https://github.com/browning-lab/hap-ibd).
 * **-map [file]** #\<string\> the [file] is a genetic map with cM distances in [PLINK format](http://zzz.bwh.harvard.edu/plink/data.shtml#map), including all target chromosomes used for kinship estimation. 
-The chromosome identifier in each hap-IBD output file must match the chromosome identifier in the genetic map file.
+The chromosome identifier in each hap-IBD output file must match the chromosome identifier in the genetic map file. 
+The current version (v2.8.7.4) of **IBDkin** only supports for the analysis on automosome, and the chromosome identifier is expected to be coded 1 through 22.
 * **-ind [file]** #\<string\> the [file] includes a list of individuals to be analyzed (one individual per line).
 
 [\[top\]](#ibdkin)
