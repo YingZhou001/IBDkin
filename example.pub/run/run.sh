@@ -1,16 +1,6 @@
 map="plink.map"
 ind="ind.txt"
-ibdfile="ibd.txt"
+ibdfile="ibdhead.txt"
+range="range.txt"
 
-#example-1
-./IBDkin -ibdfile ${ibdfile} -map ${map} -ind ${ind} -nthreads 5 -out example-1
-
-
-#example-2
-./IBDkin -ibdfile ${ibdfile} -map ${map} -ind ${ind} -nthreads 5 -out example-2 --outmask --outcoverage --nokinship
-
-#example-3
-part=1
-./IBDkin -ibdfile ${ibdfile} -map ${map} -ind ${ind} -nthreads 5 -out example-3.${part} -part 5 ${part}
-
-
+./IBDkin --ibdfile ${ibdfile} --map ${map} --ind ${ind} --range ${range} --nthreads 5 --out test --outmask --outcoverage
