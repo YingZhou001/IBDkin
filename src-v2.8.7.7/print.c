@@ -44,7 +44,7 @@ void p_parameters(void)
 	fprintf(stderr, "  *%s*\n", outfile);
 	gzFile fp = gzopen(outfile, "w");
 	gzbuffer(fp, BUFF3);
-	gzprintf(fp, "ID1 ID2 segnum ibd0 ibd1 ibd2 kinship degree\n");
+	gzprintf(fp, "ID1\tID2\tsegnum\tibd0\tibd1\tibd2\tkinship\tdegree\n");
 	gzclose(fp);
     }
     if(tagMask == 1)fprintf(stderr, "  *%s*\n", maskfile);

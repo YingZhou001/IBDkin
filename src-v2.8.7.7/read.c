@@ -181,8 +181,8 @@ void write_relate(void)
 		tmp = cal_degree(kinship);
 		if(tmp <= 3)sprintf(degree, "%d", tmp);
 		else sprintf(degree, ">3");
-		if(s2 <= 0.00001)sprintf(str, "%s %s %d %f %f 0 %f %s\n", idhead[idi]->id, idhead[ids]->id, segnum, s0, s1, kinship, degree);
-		else sprintf(str, "%s %s %d %f %f %f %f %s\n", idhead[idi]->id, idhead[ids]->id, segnum, s0, s1, s2, kinship, degree);
+		if(s2 <= 0.00001)sprintf(str, "%s\t%s\t%d\t%f\t%f\t0\t%f\t%s\n", idhead[idi]->id, idhead[ids]->id, segnum, s0, s1, kinship, degree);
+		else sprintf(str, "%s\t%s\t%d\t%f\t%f\t%f\t%f\t%s\n", idhead[idi]->id, idhead[ids]->id, segnum, s0, s1, s2, kinship, degree);
 		gzputs(fp, str);
 	    }
 	}
