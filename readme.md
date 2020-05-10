@@ -8,7 +8,7 @@ If you use this software in your published analysis, please cite:
 
 > IBDkin: fast estimation of kinship coefficients from identity by descent segments
 
-Last update: May 8, 2020,
+Last update: May 9, 2020,
 by Ying Zhou, yz001(at)uw(dot)edu
 
 
