@@ -238,6 +238,11 @@ void cal_coverage(int th_index, int chr, float P1, float P2)
     i = (int)floor(p1) + 1;
     j = (int)floor(p2);
 
+    if(j >= coverageL[chr]){
+	fprintf(stderr, "Error!, maker ranges for chromosome %s do not cover the position %.0f\n", chrs[chr], P2);
+	exit(-1);
+    }
+
     tf = coverage_per_thread[th_index]->coverage;
 
     if(j == i -1)tf[chr][j] += p2 - p1;
