@@ -7,6 +7,7 @@ IBDkin scales to hundreds of billions of IBD segments detected in hundreds of th
 If you use this software in your published analysis, please cite:
 
 > Ying Zhou, Sharon R Browning, Brian L Browning, IBDkin: fast estimation of kinship coefficients from identity by descent segments, Bioinformatics, btaa569, https://doi.org/10.1093/bioinformatics/btaa569
+
 Last update: June 18, 2020,
 by Ying Zhou, yz001(at)uw(dot)edu
 
