@@ -9,7 +9,8 @@ int hash_str(char *str)
     long int sum = 0;
     const int p = 7;
     for(i = 0; i < l; i++)sum += (int)str[i]*(int)pow(p,i);
-    out = (int)abs(sum) % 991817;
+    sum = sum % 991817;
+    out = abs((int)sum);
     return out;
 }
 
@@ -451,7 +452,8 @@ void free_all(void)
 {
     int i, j;
     free(headfile);
-    for(i = 0; i < Nfile; i ++)free(ibdfile[i]);free(ibdfile);
+    for(i = 0; i < Nfile; i ++){free(ibdfile[i]);}
+    free(ibdfile);
 
     free(mapfile);
     free(maskfile);
