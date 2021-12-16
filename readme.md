@@ -9,7 +9,7 @@ If you use this software in your published analysis, please cite:
 > Ying Zhou, Sharon R Browning, Brian L Browning, IBDkin: fast estimation of kinship coefficients from identity by descent segments, Bioinformatics, btaa569, https://doi.org/10.1093/bioinformatics/btaa569
 
 Last update: June 18, 2020,
-by Ying Zhou, yz001(at)uw(dot)edu
+by Ying Zhou, yzhou3(at)fredhutch(dot)org
 
 
 
