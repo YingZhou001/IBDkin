@@ -8,7 +8,7 @@ If you use this software in your published analysis, please cite:
 
 > Ying Zhou, Sharon R Browning, Brian L Browning, IBDkin: fast estimation of kinship coefficients from identity by descent segments, Bioinformatics, btaa569, https://doi.org/10.1093/bioinformatics/btaa569
 
-Last update: June 18, 2020,
+Last update: March 13, 2022,
 by Ying Zhou, yzhou3(at)fredhutch(dot)org
 
 
@@ -32,13 +32,13 @@ Content
 
 # 1 Installation
 
-The following commands download the source code, change the working directory to the source code folder "IBDkin/src-v2.8.7.7/", and create the executable file, `IBDkin`:
+The following commands download the source code, change the working directory to the source code folder "IBDkin/src-v2.8.7.8/", and create the executable file, `IBDkin`:
 
 ```bash
 
 git clone https://github.com/YingZhou001/IBDkin.git
 
-cd IBDkin/src-v2.8.7.7/
+cd IBDkin/src-v2.8.7.8/
 make
 ```
 **IBDkin** is compiled under linux CentOS 7.5 using gcc 4.8.5. If you encounter any problems compiling the program, please contact the author for assistance. 
@@ -183,8 +183,23 @@ The masked regions output file (ending in "mask.gz") has three tab-delimited col
 3. End position of each masked region
 
 [\[top\]](#ibdkin)
+ 
+# 4 Potential causes for memory collapse
 
-# 4 License
+* Extreme long sample ID string
+
+If you have sample id with length longer than 32 bytes, you may encounter this problem.
+You are welcome to blame the author and shoot an email for help. 
+If you are familiar with C code, try to change the value of the variables `BUFF_id` and `BUFF_col` in the file "head.h". 
+
+* Small machine memory (<4Gb)
+
+Ask the author for help or try to change the values of the variables `BUFF_row` and `BUFF_col` in the file "head.h".
+
+
+[\[top\]](#ibdkin)
+
+# 5 License
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
