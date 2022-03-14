@@ -26,7 +26,8 @@ Content
     - [3.1 Kinship Coefficients](#31-kinship-coefficients)
     - [3.2 IBD Coverage](#32-ibd-coverage)
     - [3.3 Masked Regions](#33-masked-regions)
-- [4 License](#4-license)
+- [4 Potential memory fails](#4-potential-memory-fails)
+- [5 License](#4-license)
 
 
 
@@ -184,7 +185,7 @@ The masked regions output file (ending in "mask.gz") has three tab-delimited col
 
 [\[top\]](#ibdkin)
  
-# 4 Potential causes for memory collapse
+# 4 Potential memory fails
 
 * Extreme long sample ID string
 
