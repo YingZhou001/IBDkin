@@ -14,7 +14,7 @@
 #include <stdarg.h>
 
 
-#define BUFF_id 128 //for ID/Chr string length
+#define BUFF_id 32 //for ID/Chr string length
 #define BUFF_col 2048 //should larger than BUFF_id*2+1024
 #define BUFF_row 1048576 //BUFF_col * BUFF_row * 2  determine mem in use 
 #define BUFF_gz 1048576 //buffer size for gzip 
