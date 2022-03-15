@@ -34,9 +34,9 @@ void read_headfile(char *headfile)
 int check_input(int arg, char**argv)
 {
     fprintf(stderr, "############################\n");
-    fprintf(stderr, "#Welcome to IBDkin V2.8.7.7#\n");
+    fprintf(stderr, "#Welcome to IBDkin V2.8.7.8#\n");
     fprintf(stderr, "############################\n");
-    fprintf(stderr, "Copyright (C) 2020 Ying Zhou\n\n");
+    fprintf(stderr, "Copyright (C) 2022 Ying Zhou\n\n");
     //fprintf(stderr, "zlib verison: %s\n\n", ZLIB_VERSION);
     int i, fsize;
     IBDcM = 0;
