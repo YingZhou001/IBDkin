@@ -53,7 +53,7 @@ To run some example IBDkin analyses, change the working directory to "IBDkin/exa
 
 ```bash
 cd IBDkin/example.pub/run
-cp ../../src-v2.8.7.7/IBDkin ./
+cp ../../src-v2.8.7.8/IBDkin ./
 sh run.sh
 ```
 Alternatively, you can enter the commands in sections 2.1.1 to 2.1.3 to run the examples.
@@ -70,7 +70,7 @@ This folder contains four required **IBDkin** input files: "ibd.txt" is the list
 Before running the following scripts, we need to copy the executable file `IBDkin` to the working directory with command:
 
 ```bash
-cp ../../src-v2.8.7.7/IBDkin ./
+cp ../../src-v2.8.7.8/IBDkin ./
 ```
 
 ### 2.1.1 Computing kinship coefficients
